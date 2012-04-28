@@ -30,7 +30,7 @@ if (!function_exists('intl_get_error_code')) {
 
 $loader->registerNamespaceFallbacks(array(
 	$tjmGlobals['pathApp'].'/../src',
-	$tjmGlobals['pathApp'].'/../vendor/_bundles',
+	$tjmGlobals['pathApp'].'/../vendor/bundles',
 ));
 $loader->register();
 
