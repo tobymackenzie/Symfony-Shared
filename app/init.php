@@ -8,6 +8,12 @@ if(!array_key_exists('pathApp', $tjmGlobals)){
 		: $_SERVER['DOCUMENT_ROOT'].'/../app'
 	;
 }
+if(!array_key_exists('pathSrc', $tjmGlobals)){
+	$tjmGlobals['pathSrc'] = $tjmGlobals['pathApp']."/../src";
+}
+if(!array_key_exists('pathVendor', $tjmGlobals)){
+	$tjmGlobals['pathVendor'] = $tjmGlobals['pathApp']."/../vendor";
+}
 
 require_once $tjmGlobals['pathApp'].'/bootstrap.php.cache';
 require_once $tjmGlobals['pathApp'].'/AppKernel.php';
