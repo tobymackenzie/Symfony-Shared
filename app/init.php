@@ -15,6 +15,10 @@ if(!array_key_exists('pathVendor', $tjmGlobals)){
 	$tjmGlobals['pathVendor'] = $tjmGlobals['pathApp']."/../vendor";
 }
 
-require_once $tjmGlobals['pathApp'].'/bootstrap.php.cache';
-require_once $tjmGlobals['pathApp'].'/AppKernel.php';
-
+if(!(
+	array_key_exists('isSimpleCLI', $tjmGlobals)
+	&& $tjmGlobals['isSimpleCLI']
+)){
+	require_once $tjmGlobals['pathApp'].'/bootstrap.php.cache';
+	require_once $tjmGlobals['pathApp'].'/AppKernel.php';
+}

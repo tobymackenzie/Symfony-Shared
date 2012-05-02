@@ -1,4 +1,3 @@
-#!/usr/bin/env php
 <?php
 
 /*
@@ -12,8 +11,12 @@
 
 set_time_limit(0);
 
-$rootDir = exec('pwd');
-$vendorDir = $rootDir.'/vendor';
+if(!isset($rootDir)){
+	$rootDir = exec('pwd');
+}
+if(!isset($vendorDir)){
+	$vendorDir = $rootDir.'/vendor';
+}
 
 array_shift($argv);
 if (!isset($argv[0])) {
