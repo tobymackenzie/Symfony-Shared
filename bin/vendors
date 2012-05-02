@@ -128,9 +128,12 @@ if ('update' === $command) {
 	file_put_contents($rootDir.'/deps.lock', implode("\n", $newversions));
 }
 
-// php on windows can't use the shebang line from system()
-$interpreter = PHP_OS == 'WINNT' ? 'php.exe' : '';
-
+if(isset($tjmGlobals) && array_key_exists('pathPHPCLI', $tjmGlobals)){
+	$interpreter = $tjmGlobals['pathPHPCLI'];
+}else{
+	// php on windows can't use the shebang line from system()
+	$interpreter = PHP_OS == 'WINNT' ? 'php.exe' : '';
+}
 // Update the bootstrap files
 system(sprintf('%s %s %s', $interpreter, escapeshellarg($rootDir.'/vendor/bundles/Sensio/Bundle/DistributionBundle/Resources/bin/build_bootstrap.php'), escapeshellarg($rootDir)));
 
