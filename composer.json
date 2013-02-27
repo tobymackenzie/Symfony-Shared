@@ -1,0 +1,14 @@
+{
+ "name": "tjm/symfony-shared"
+ ,"authors": [
+  {
+   "name": "Toby Mackenzie"
+   ,"email": "tobym@tobymackenzie.com"
+   ,"homepage": "http://www.tobymackenzie.com"
+  }
+ ]
+ ,"require": {
+  "php": ">=5.3.3"
+  ,"symfony/symfony": ">=2.0"
+ }
+}
