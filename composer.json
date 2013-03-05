@@ -7,8 +7,14 @@
    ,"homepage": "http://www.tobymackenzie.com"
   }
  ]
+ ,"autoload": {
+  "psr-0": {
+   "TJM\\Shared": ""
+  }
+ }
  ,"require": {
   "php": ">=5.3.3"
   ,"symfony/symfony": ">=2.0"
  }
+ ,"target-dir": "TJM/Shared"
 }
