@@ -1,5 +1,5 @@
 <?php
-namespace TJM\Shared\app;
+namespace TJM\Shared\Component;
 
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpFoundation\Request;
