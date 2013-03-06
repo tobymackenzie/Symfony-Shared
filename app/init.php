@@ -1,5 +1,6 @@
 <?php
-if(!isset($tjmGlobals)) $tjmGlobals = Array();
+$tjmGlobals = (isset($GLOBALS['tjmGlobals'])) ? $GLOBALS['tjmGlobals'] : Array();
+
 if(!isset($tjmGlobals['paths'])) $tjmGlobals['paths'] = Array();
 if(!isset($tjmGlobals['isCli']))
 	$tjmGlobals['isCli'] = (php_sapi_name() == 'cli');
@@ -23,3 +24,5 @@ $tjmGlobals['paths']['shared'] = __DIR__ . '/..';
 // 	require_once $tjmGlobals['paths']['app'].'/bootstrap.php.cache';
 // 	require_once $tjmGlobals['paths']['app'].'/AppKernel.php';
 // }
+
+$GLOBALS['tjmGlobals'] = $tjmGlobals;
