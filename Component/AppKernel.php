@@ -15,25 +15,19 @@ class AppKernel extends Kernel{
 			//---framework
 			new \Symfony\Bundle\FrameworkBundle\FrameworkBundle()
 			//---standard symfony
-			,new \Symfony\Bundle\AsseticBundle\AsseticBundle()
-			,new \Symfony\Bundle\MonologBundle\MonologBundle()
 			,new \Symfony\Bundle\SecurityBundle\SecurityBundle()
-			,new \Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle()
 			,new \Symfony\Bundle\TwigBundle\TwigBundle()
-			//---sensio extra
-			,new \Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle()
-			//---JMS extras
-            ,new \JMS\AopBundle\JMSAopBundle()
-            ,new \JMS\DiExtraBundle\JMSDiExtraBundle($this)
-			,new \JMS\SecurityExtraBundle\JMSSecurityExtraBundle()
-			//---doctrine
+			,new \Symfony\Bundle\MonologBundle\MonologBundle()
+			,new \Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle()
+			,new \Symfony\Bundle\AsseticBundle\AsseticBundle()
 			,new \Doctrine\Bundle\DoctrineBundle\DoctrineBundle()
+			,new \Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle()
 		);
 
 		if (in_array($this->getEnvironment(), array('dev', 'test'))) {
 			$bundles[] = new \Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
-			$bundles[] = new \Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
 			$bundles[] = new \Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
+			$bundles[] = new \Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
 		}
 
 		return $bundles;
