@@ -8,8 +8,8 @@
   }
  ]
  ,"autoload": {
-  "psr-0": {
-   "TJM\\Shared": ""
+  "psr-4": {
+   "TJM\\Shared\\": ""
   }
   ,"files": ["app/init.php"]
  }
@@ -17,5 +17,4 @@
   "php": ">=5.3.3"
   ,"symfony/symfony": ">=2.0"
  }
- ,"target-dir": "TJM/Shared"
 }
