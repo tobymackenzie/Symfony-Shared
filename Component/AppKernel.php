@@ -4,6 +4,7 @@ namespace TJM\Shared\Component;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Kernel;
+use TJM\Shared\Component\Config;
 
 class AppKernel extends Kernel{
 	/*=====
@@ -34,11 +35,7 @@ class AppKernel extends Kernel{
 	}
 
 	public function registerContainerConfiguration(LoaderInterface $loader){
-		$appPath = (isset($GLOBALS['tjmGlobals']) && isset($GLOBALS['tjmGlobals']['paths']) && isset($GLOBALS['tjmGlobals']['paths']['app']))
-			? $GLOBALS['tjmGlobals']['paths']['app']
-			: __DIR__.'/../../../../../app'
-		;
-		$loader->load($appPath.'/config/config_'.$this->getEnvironment().'.yml');
+		$loader->load(Config::getPath('app') . '/config/config_' . $this->getEnvironment() . '.yml');
 	}
 
 	/*=====

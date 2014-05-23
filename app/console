@@ -2,24 +2,21 @@
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
 use Symfony\Component\Debug\Debug;
-
-// if you don't want to setup permissions the proper way, just uncomment the following PHP line
-// read http://symfony.com/doc/current/book/installation.html#configuration-and-setup for more information
-//umask(0000);
+use TJM\Shared\Component\Config;
 
 set_time_limit(0);
 
 require_once __DIR__.'/init.php';
 
 $input = new ArgvInput();
-$env = $input->getParameterOption(array('--env', '-e'), getenv('SYMFONY_ENV') ?: 'dev');
-if($env !== 'prod'){
-	$debug = getenv('SYMFONY_DEBUG') !== '0' && !$input->hasParameterOption(array('--no-debug', ''));
+Config::setEnvironment($input->getParameterOption(array('--env', '-e'), getenv('SYMFONY_ENV') ?: 'dev'));
+if(Config::getEnvironment() !== 'prod'){
+	Config::setDebug(getenv('SYMFONY_DEBUG') !== '0' && !$input->hasParameterOption(array('--no-debug', '')));
 }else{
-	$debug = getenv('SYMFONY_DEBUG') !== '0' && $input->hasParameterOption(array('--debug', ''));
+	Config::setDebug(getenv('SYMFONY_DEBUG') !== '0' && $input->hasParameterOption(array('--debug', '')));
 }
 
-$kernel = new AppKernel($env, $debug);
+$kernel = new AppKernel(Config::getEnvironment(), Config::getDebug());
 $application = new Application($kernel);
 $application->run($input);
 
