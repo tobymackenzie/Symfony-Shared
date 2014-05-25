@@ -13,7 +13,7 @@ class Config extends InitConfig{
 	public static $debug;
 	public static function getDebug(){
 		if(!isset(self::$debug)){
-			self::$debug = (self::getEnvironment() === 'prod');
+			self::$debug = (self::getEnvironment() !== 'prod');
 		}
 		return self::$debug;
 	}
